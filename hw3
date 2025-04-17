@@ -1,0 +1,24 @@
+public class Main {
+    public static void main(String[] args) {
+        Stack stack1 = new Stack(10);
+        Stack stack2 = new Stack(10);
+        MinStack minStack = new MinStack(stack1, stack2);
+        minStack.add(6);
+        minStack.add(2);
+        minStack.add(4);
+        minStack.add(3);
+        minStack.add(6);
+        minStack.add(4);
+        minStack.add(1);
+        minStack.add(4);
+
+        minStack.info();
+
+        minStack.remove();
+
+        System.out.println();
+        minStack.info();
+
+
+    }
+}
