@@ -1,0 +1,48 @@
+public class Stack {
+    private int[] a;
+    private int size;
+    private int top ;
+
+    public int[] getA() {
+        return a;
+    }
+
+    public int getTop(){
+        return top;
+    }
+    public int getSize(){
+        return size;
+    }
+    public Stack(int size){
+        this.a = new int[size];
+        this.size = size;
+        this.top = 0;
+    }
+    public boolean isFull(){
+        return top == (size - 1);
+    }
+    public boolean isVoid(){
+        return top == -1;
+    }
+    public boolean add(int x){
+        if(!isFull()){
+            a[top+1] = x;
+            top++;
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public int remove(){
+        if(!isVoid()){
+            return a[top--];
+        }else{
+            throw new IndexOutOfBoundsException("p");
+        }
+    }
+
+    public void info(){
+        for(int i = getTop(); i > 0; i--){
+            System.out.println(getA()[i]);
+        }
+    }
