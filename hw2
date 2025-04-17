@@ -1,0 +1,43 @@
+public class MinStack {
+    Stack stack1;
+    Stack stack2;
+
+    public MinStack(Stack stack1, Stack stack2){
+        this.stack1 = stack1;
+        this.stack2 = stack2;
+    }
+
+    public void add(int num){
+        stack1.add(num);
+        if(stack2.getTop() == 0){
+            stack2.add(num);
+        }
+        else {
+            if(stack2.getA()[stack2.getTop()] < num){
+                stack2.add(stack2.getA()[stack2.getTop()]);
+            }
+            else{
+                if(stack2.getA()[stack2.getTop()] >= num){
+                    stack2.add(num);
+                }
+            }
+        }
+    }
+
+    public void remove(){
+        if(stack1.getTop() <= 0){
+            System.out.println("Stack пуст");
+        }
+        else{
+            stack1.remove();
+            stack2.remove();
+        }
+    }
+
+    public void info(){
+        for(int i = stack1.getTop(); i > 0; i--){
+            System.out.println(stack1.getA()[i] + " - " + stack2.getA()[i]);
+        }
+    }
+
+}
